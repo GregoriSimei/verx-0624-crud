@@ -1,0 +1,1 @@
+-- it will be initialized with the create-schema.sh script
