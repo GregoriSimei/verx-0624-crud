@@ -138,4 +138,3 @@ dist
 build
 .vscode
 yarn.lock
-.devcontainer

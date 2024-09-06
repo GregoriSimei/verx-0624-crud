@@ -1,1 +1,1 @@
--- it will be initialized with the create-schema.sh script
+CREATE SCHEMA IF NOT EXISTS "verx-crud";
