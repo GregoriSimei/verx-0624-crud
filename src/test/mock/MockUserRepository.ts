@@ -20,4 +20,8 @@ export class MockUserRepository implements IUserRepository {
     async update(externalId: string, user: Partial<TUserToCreate>): Promise<IUser> {
         return factoryUser()
     }
+
+    async findByEmail(email: string): Promise<IUser | null> {
+        return factoryUser()
+    }
 }

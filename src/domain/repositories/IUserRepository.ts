@@ -8,5 +8,6 @@ export interface IUserRepository {
     update(externalId: string, user: Partial<TUserToCreate>): Promise<IUser>
     delete(externalId: string): Promise<void>
     findOne(externalId: string): Promise<IUser | null>
+    findByEmail(email: string): Promise<IUser | null>
     findAll(): Promise<IUser[]>
 }
