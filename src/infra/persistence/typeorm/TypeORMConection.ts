@@ -11,7 +11,7 @@ export const TypeOrmConnection = new DataSource({
   database: envPostgres.database,
   synchronize: false,
   logging: false,
-  entities: [__dirname + '/models/**/*.entity{.js,.ts}'],
+  entities: [__dirname + '/models/**/*.model{.js,.ts}'],
   migrations: [__dirname + '/migrations/**/*.ts'],
   migrationsTableName: 'custom_migration_table',
   schema: envPostgres.schema,

@@ -1,0 +1,12 @@
+import { DataBaseModel } from "@domain/models/Database";
+import { IUser } from "@domain/models/User";
+
+export type TUserToCreate = Omit<IUser, keyof DataBaseModel | 'externalId'> & Partial<DataBaseModel & { externalId: string }>
+
+export interface IUserRepository {
+    create(user: TUserToCreate): IUser
+    update(externalId: string, user: Partial<TUserToCreate>): IUser
+    delete(externalId: string): Promise<void>
+    findOne(externalId: string): Promise<IUser | null>
+    findAll(): Promise<IUser[]>
+}

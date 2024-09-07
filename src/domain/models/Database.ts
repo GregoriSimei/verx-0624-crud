@@ -1,5 +1,5 @@
 export interface DataBaseModel {
-    id: string
+    id: number
     createdAt: Date
     updatedAt: Date
 }
