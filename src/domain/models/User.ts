@@ -25,7 +25,7 @@ const MAX_AGE_AVAILABLE = 120
 type PartialUser = Omit<IUser, keyof DataBaseModel | 'externalId'> & Partial<DataBaseModel & { externalId: string }>
 
 export class User implements PartialUser {
-    id?: string
+    id?: number
     externalId?: string
     name: string
     email: string
