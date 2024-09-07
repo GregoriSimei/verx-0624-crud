@@ -7,9 +7,11 @@ import { TypeOrmConnection } from "../TypeORMConection";
 
 @injectable()
 export class UserRepository implements IUserRepository {
-    constructor(
-        private repository: Repository<User> = TypeOrmConnection.getRepository(User)
-    ) { }
+    private repository: Repository<User>
+
+    constructor() {
+        this.repository = TypeOrmConnection.getRepository(User)
+    }
 
     async create(user: TUserToCreate): Promise<IUser> {
         return this.repository.create(user)
