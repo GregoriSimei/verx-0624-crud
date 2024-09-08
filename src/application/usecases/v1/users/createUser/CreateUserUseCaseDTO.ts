@@ -8,4 +8,5 @@ export type TCreateUserUseCaseResponse = {
     id: string
     name: string,
     email: string
+    birthday: Date
 }

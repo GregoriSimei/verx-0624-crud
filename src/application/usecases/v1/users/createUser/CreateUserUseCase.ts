@@ -30,12 +30,18 @@ export class CreateUserUseCase implements ICreateUserUseCase {
         const [allRigth, error] = user.validate()
         if (!allRigth) throw new BadRequest(error.message)
 
-        const createdUser = await this.userRepository.create(user)
+        const createdUser = await this.userRepository.create({
+            birthday: user.birthday,
+            email: user.email,
+            name: user.name,
+            pass: user.pass
+        })
 
         return {
             id: createdUser.externalId,
             name: createdUser.name,
-            email: createdUser.email
+            email: createdUser.email,
+            birthday: createdUser.birthday
         }
     }
 }

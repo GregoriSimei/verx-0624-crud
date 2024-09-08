@@ -1,13 +1,14 @@
 import { envPostgres } from "@config/variables/postgres";
 import { IUser } from "@domain/models/User";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('users', { schema: envPostgres.schema })
 export class User implements IUser {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @PrimaryGeneratedColumn('uuid')
+    @Column({ name: 'external_id' })
+    @Generated('uuid')
     externalId: string;
 
     @Column()
