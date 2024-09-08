@@ -6,4 +6,4 @@ WORKDIR /home/node/app
 
 USER node
 
-CMD yarn db:run && yarn dev
+CMD yarn && yarn db:run && yarn dev
