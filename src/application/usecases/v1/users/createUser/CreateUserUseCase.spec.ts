@@ -1,6 +1,6 @@
 import { ICreateUserUseCase } from "./ICreateUserUseCase";
 import { CreateUserUseCase } from "./CreateUserUseCase";
-import { TCreateUserUseCaseRequest } from "./CreateUserUseCaseDTO";
+import { TCreateUserUseCaseRequest } from "./TCreateUserUseCase";
 import { BadRequest } from "@infra/http/errors/BadRequest";
 import { IUserRepository } from "@domain/repositories/IUserRepository";
 import { afterEach } from "node:test";

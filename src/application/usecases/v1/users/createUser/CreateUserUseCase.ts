@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { ICreateUserUseCase } from "./ICreateUserUseCase";
-import { TCreateUserUseCaseRequest, TCreateUserUseCaseResponse } from "./CreateUserUseCaseDTO";
+import { TCreateUserUseCaseRequest, TCreateUserUseCaseResponse } from "./TCreateUserUseCase";
 import { BadRequest } from "@infra/http/errors/BadRequest";
 import { IUserRepository } from "@domain/repositories/IUserRepository";
 import { User } from "@domain/models/User";
