@@ -18,7 +18,7 @@ export class UserRepository implements IUserRepository {
     }
 
     async delete(externalId: string): Promise<void> {
-        this.repository.delete({
+        await this.repository.delete({
             externalId
         })
     }

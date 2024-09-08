@@ -1,5 +1,6 @@
 import { RouterAdapter } from "@infra/http/adapters/RouterAdapter"
 import { CreateUserControllerBody } from "@infra/http/controllers/v1/users/createUser/DTOs/CreateUserQueryDTO"
+import { DeleteUserControllerParams } from "@infra/http/controllers/v1/users/deleteUser/DTOs/DeleteUserControllerParams"
 import { FindOneOrAllUsersControllerParams } from "@infra/http/controllers/v1/users/findOneOrAllUsers/DTOs/FindOneOrAllUsersControllerParams"
 import { UpdateUserControllerBody } from "@infra/http/controllers/v1/users/updateUser/DTOs/UpdateUserControllerBody"
 import { UpdateUserControllerParams } from "@infra/http/controllers/v1/users/updateUser/DTOs/UpdateUserControllerParams"
@@ -12,6 +13,7 @@ export default (router: Router): void => {
     const findOneOrAllUsersController = container.resolve<Controller>('FindOneOrAllUsersController')
     const createUserController = container.resolve<Controller>('CreateUserController')
     const updateUserController = container.resolve<Controller>('UpdateUserController')
+    const deleteUserController = container.resolve<Controller>('DeleteUserController')
 
     router.get(
         '/v1/users/:userId?',
@@ -36,5 +38,13 @@ export default (router: Router): void => {
             params: UpdateUserControllerParams
         }),
         RouterAdapter.adapt(updateUserController)
+    )
+
+    router.delete(
+        '/v1/users/:userId',
+        MiddlewareUtils.validateRequest({
+            params: DeleteUserControllerParams
+        }),
+        RouterAdapter.adapt(deleteUserController)
     )
 }

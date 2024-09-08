@@ -12,11 +12,10 @@ export class HttpResponses {
         }
     }
 
-    static okNoData(): HttpResponse {
+    static noContent(): HttpResponse {
         return {
-            statusCode: EHttpStatusCode.OK,
-            body: 'OK',
-            type: 'message'
+            statusCode: EHttpStatusCode.NO_CONTENT,
+            type: 'json'
         }
     }
 
